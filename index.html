@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astróloga Rosa | Consultas de Tarot, Búzios e Astrologia</title>
+<meta name="description" content="Astróloga Rosa – mais de 20 anos de experiência em Tarot, Búzios, Astrologia e Orientação Espiritual. Atendimento presencial na Asa Sul – DF e online para todo o Brasil. Agende sua consulta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dim: #8A6B28;
+    --deep: #0A0705;
+    --dark: #120D08;
+    --card: #1A1208;
+    --card2: #1F1710;
+    --text: #E8DCC8;
+    --text-dim: #9E8E72;
+    --accent: #6B3FA0;
+    --accent2: #8B5FBD;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--deep);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ── STARS BG ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(1px 1px at 10% 15%, rgba(201,168,76,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 25%, rgba(201,168,76,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.15) 0%, transparent 100%),
+      radial-gradient(1px 1px at 85% 40%, rgba(201,168,76,0.25) 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 85%, rgba(255,255,255,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 70%, rgba(201,168,76,0.2) 0%, transparent 100%),
+      radial-gradient(2px 2px at 65% 5%, rgba(201,168,76,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 5% 50%, rgba(255,255,255,0.25) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    background: rgba(10,7,5,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    transition: all 0.3s;
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--text-dim); font-size: 0.75rem; display: block; letter-spacing: 0.25em; margin-top: 2px; }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 10px 22px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold);
+    color: var(--deep);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 70px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(107,63,160,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 50%),
+      linear-gradient(180deg, var(--deep) 0%, #0F0A05 100%);
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    animation: orb-pulse 8s ease-in-out infinite alternate;
+  }
+
+  .hero-orb-1 { width: 500px; height: 500px; background: var(--accent); top: -100px; right: -100px; }
+  .hero-orb-2 { width: 400px; height: 400px; background: var(--gold-dim); bottom: -100px; left: -100px; animation-delay: -4s; }
+
+  @keyframes orb-pulse {
+    from { transform: scale(1) translate(0,0); opacity: 0.1; }
+    to { transform: scale(1.2) translate(20px, -20px); opacity: 0.2; }
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  .hero-text { animation: fade-up 1s ease both; }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--gold-dim);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    margin-bottom: 30px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+
+  .badge {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--text-dim);
+    border-radius: 2px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--deep);
+    padding: 16px 32px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(201,168,76,0.3);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--text);
+    padding: 16px 28px;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(232,220,200,0.2);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .hero-image-wrap {
+    position: relative;
+    animation: fade-up 1s ease 0.3s both;
+  }
+
+  .hero-image-frame {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .hero-image-frame::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, var(--gold-dim), transparent 50%, var(--accent));
+    z-index: 1;
+  }
+
+  .hero-image-frame img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.9) contrast(1.05);
+  }
+
+  .hero-image-deco {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 120px;
+    height: 120px;
+    border: 1px solid rgba(201,168,76,0.2);
+    z-index: 0;
+  }
+
+  .hero-image-deco2 {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba(107,63,160,0.3);
+    z-index: 0;
+  }
+
+  .hero-stat-bar {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    background: var(--card);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 3;
+  }
+
+  .hero-stat { text-align: center; }
+  .hero-stat-num {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+  }
+  .hero-stat-label {
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 0 auto 60px;
+    max-width: 300px;
+  }
+
+  .section-divider::before, .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim));
+  }
+
+  .section-divider::after {
+    background: linear-gradient(90deg, var(--gold-dim), transparent);
+  }
+
+  .divider-symbol {
+    color: var(--gold);
+    font-size: 1.2rem;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 100px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    text-align: center;
+    color: var(--text);
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold-light); }
+
+  .section-desc {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    max-width: 580px;
+    margin: 0 auto 60px;
+    line-height: 1.8;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding-top: 0;
+  }
+
+  .about-img-wrap {
+    position: relative;
+  }
+
+  .about-img-wrap img {
+    width: 100%;
+    max-width: 380px;
+    height: 460px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.88) sepia(0.1);
+  }
+
+  .about-img-badge {
+    position: absolute;
+    bottom: -24px;
+    right: -24px;
+    background: var(--gold);
+    color: var(--deep);
+    padding: 20px 24px;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+  }
+
+  .about-img-badge strong {
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .about-img-badge span {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .about-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .about-text h2 em { font-style: italic; color: var(--gold-light); }
+
+  .about-text p {
+    color: var(--text-dim);
+    line-height: 1.9;
+    margin-bottom: 18px;
+    font-size: 0.95rem;
+  }
+
+  .about-list {
+    list-style: none;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .about-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.88rem;
+    color: var(--text-dim);
+  }
+
+  .about-list li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  /* ── SERVICES ── */
+  .services-bg {
+    background: linear-gradient(180deg, transparent, rgba(107,63,160,0.04) 50%, transparent);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,168,76,0.08);
+  }
+
+  .service-card {
+    background: var(--card);
+    padding: 44px 36px;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-card:hover {
+    background: var(--card2);
+    transform: translateY(-4px);
+  }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .service-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    margin-bottom: 14px;
+  }
+
+  .service-desc {
+    color: var(--text-dim);
+    font-size: 0.88rem;
+    line-height: 1.8;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .testimonial-card {
+    background: var(--card);
+    border: 1px solid rgba(201,168,76,0.1);
+    padding: 32px;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .testimonial-card:hover {
+    border-color: rgba(201,168,76,0.25);
+    transform: translateY(-4px);
+  }
+
+  .testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    color: rgba(201,168,76,0.08);
+    line-height: 1;
+  }
+
+  .testimonial-stars {
+    color: var(--gold);
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    letter-spacing: 3px;
+  }
+
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid rgba(201,168,76,0.08);
+    padding-top: 16px;
+  }
+
+  .author-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--gold-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    color: var(--deep);
+    flex-shrink: 0;
+  }
+
+  .author-name {
+    font-weight: 400;
+    font-size: 0.82rem;
+    color: var(--text);
+  }
+
+  .author-location {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .how-steps::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: calc(12.5% + 20px);
+    right: calc(12.5% + 20px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), var(--gold-dim), transparent);
+    z-index: 0;
+  }
+
+  .how-step {
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-num {
+    width: 80px;
+    height: 80px;
+    border: 1px solid var(--gold-dim);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    background: var(--dark);
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    transition: all 0.3s;
+  }
+
+  .how-step:hover .step-num {
+    background: var(--gold);
+    color: var(--deep);
+    border-color: var(--gold);
+  }
+
+  .step-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .step-desc {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+
+  /* ── FAQ ── */
+  .faq-list {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    overflow: hidden;
+  }
+
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 22px 0;
+    color: var(--text);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    transition: color 0.3s;
+  }
+
+  .faq-q:hover { color: var(--gold); }
+
+  .faq-q .faq-icon {
+    color: var(--gold);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    line-height: 1.9;
+    padding-bottom: 0;
+  }
+
+  .faq-item.open .faq-a {
+    max-height: 400px;
+    padding-bottom: 22px;
+  }
+
+  /* ── CTA STRIP ── */
+  .cta-strip {
+    background: linear-gradient(135deg, rgba(107,63,160,0.15), rgba(201,168,76,0.08));
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 80px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .cta-strip::before {
+    content: '✦';
+    position: absolute;
+    font-size: 20rem;
+    color: rgba(201,168,76,0.02);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .cta-strip h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+
+  .cta-strip h2 em { font-style: italic; color: var(--gold-light); }
+
+  .cta-strip p {
+    color: var(--text-dim);
+    margin-bottom: 36px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .cta-contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 36px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .contact-item:hover { color: var(--gold); }
+
+  .contact-item span { font-size: 1.2rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: rgba(0,0,0,0.4);
+    border-top: 1px solid rgba(201,168,76,0.1);
+    padding: 40px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 12px;
+    letter-spacing: 0.15em;
+  }
+
+  .footer-text {
+    color: var(--text-dim);
+    font-size: 0.78rem;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 16px;
+  }
+
+  .footer-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ── WHATSAPP BUTTON ── */
+  .whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    text-decoration: none;
+    transition: all 0.3s;
+    animation: wpp-pulse 3s ease-in-out infinite;
+  }
+
+  .whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(37,211,102,0.6);
+  }
+
+  @keyframes wpp-pulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.3); }
+    50% { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 14px rgba(37,211,102,0); }
+  }
+
+  .whatsapp-btn svg { width: 30px; height: 30px; }
+
+  /* ── CHATBOT ── */
+  .chat-toggle {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 999;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+    transition: all 0.3s;
+    font-size: 1.5rem;
+  }
+
+  .chat-toggle:hover {
+    transform: scale(1.1);
+    background: var(--gold-light);
+  }
+
+  .chat-window {
+    position: fixed;
+    bottom: 104px;
+    left: 30px;
+    z-index: 998;
+    width: 340px;
+    max-height: 520px;
+    background: var(--card);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+  }
+
+  .chat-window.open {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .chat-header {
+    background: linear-gradient(135deg, var(--gold-dim), #6B3FA0);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .chat-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.3);
+    flex-shrink: 0;
+  }
+
+  .chat-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  .chat-header-info h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.82rem;
+    color: #fff;
+    letter-spacing: 0.05em;
+  }
+
+  .chat-status {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.7);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 2px;
+  }
+
+  .chat-status::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4ade80;
+    display: block;
+  }
+
+  .chat-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-dim) transparent;
+  }
+
+  .chat-msg {
+    max-width: 85%;
+    animation: msg-in 0.3s ease both;
+  }
+
+  @keyframes msg-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .chat-msg.bot { align-self: flex-start; }
+  .chat-msg.user { align-self: flex-end; }
+
+  .msg-bubble {
+    padding: 10px 14px;
+    font-size: 0.83rem;
+    line-height: 1.6;
+    border-radius: 2px;
+  }
+
+  .bot .msg-bubble {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid rgba(201,168,76,0.1);
+    border-radius: 2px 12px 12px 12px;
+  }
+
+  .user .msg-bubble {
+    background: var(--gold-dim);
+    color: var(--deep);
+    font-weight: 400;
+    border-radius: 12px 2px 12px 12px;
+  }
+
+  .chat-options {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0 16px 12px;
+  }
+
+  .chat-opt-btn {
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.25);
+    color: var(--gold);
+    padding: 9px 14px;
+    font-size: 0.78rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 2px;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .chat-opt-btn:hover {
+    background: rgba(201,168,76,0.1);
+    border-color: var(--gold);
+  }
+
+  .chat-footer-note {
+    padding: 10px 16px;
+    background: rgba(0,0,0,0.2);
+    font-size: 0.68rem;
+    color: var(--text-dim);
+    text-align: center;
+    border-top: 1px solid rgba(201,168,76,0.06);
+  }
+
+  /* ── SECTION FULL-WIDTH ── */
+  .full-width { max-width: 100%; padding-left: 0; padding-right: 0; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .hero-eyebrow { justify-content: center; }
+    .hero-actions { justify-content: center; }
+
+    .hero-image-wrap { order: -1; }
+    .hero-image-frame img { height: 320px; }
+    .hero-stat-bar { position: static; margin-top: 16px; }
+
+    section { padding: 60px 20px; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .how-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .how-steps::before { display: none; }
+    .cta-strip { padding: 60px 24px; }
+
+    .chat-window { left: 10px; right: 10px; width: auto; bottom: 104px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="#">
+    Astróloga Rosa
+    <span>Consultas Esotéricas</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#como-funciona">Como Funciona</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="https://wa.me/5561983346917?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta" target="_blank" class="nav-cta">Agendar Consulta</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Orientação Espiritual Séria</div>
+      <h1 class="hero-title">
+        Clareza para<br>
+        <em>sua jornada</em>
+      </h1>
+      <p class="hero-subtitle">
+        Mais de 20 anos dedicados a guiar pessoas através do Tarot, Búzios, Astrologia e Consultas Espirituais — com responsabilidade e sigilo.
+      </p>
+      <div class="hero-badges">
+        <span class="badge">Tarot</span>
+        <span class="badge">Búzios</span>
+        <span class="badge">Astrologia</span>
+        <span class="badge">Online & Presencial</span>
+        <span class="badge">Sigilo Total</span>
+      </div>
+      <div class="hero-actions">
+        <a href="https://wa.me/5561983346917?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta" target="_blank" class="btn-primary">
+          ✦ Agendar pelo WhatsApp
+        </a>
+        <a href="#servicos" class="btn-secondary">Ver Serviços</a>
+      </div>
+    </div>
+
+    <div class="hero-image-wrap">
+      <div class="hero-image-frame">
+        <div class="hero-image-deco"></div>
+        <div class="hero-image-deco2"></div>
+        <img src="rosa-hero.jpg" alt="Astróloga Rosa" id="heroImg"
+          onerror="this.style.background='linear-gradient(135deg,#1A1208,#2A1F10)';this.style.minHeight='500px'">
+      </div>
+      <div class="hero-stat-bar">
+        <div class="hero-stat">
+          <div class="hero-stat-num">20+</div>
+          <div class="hero-stat-label">Anos de Experiência</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">5K+</div>
+          <div class="hero-stat-label">Consultas Realizadas</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label">Sigilo Garantido</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="section-divider"><span class="divider-symbol">✦</span></div>
+  <div class="about-grid">
+    <div class="about-img-wrap">
+      <img id="aboutImg" src="rosa-about.jpg" alt="Astróloga Rosa – Consulta Espiritual"
+        onerror="this.style.background='linear-gradient(135deg,#1A1208,#2A1F10)';this.style.minHeight='460px'">
+      <div class="about-img-badge">
+        <strong>20+</strong>
+        <span>Anos guiando pessoas</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <p class="section-label">Sobre Rosa</p>
+      <h2>Uma vida dedicada à <em>orientação espiritual</em></h2>
+      <p>Sou Astróloga Rosa, consultora espiritual com mais de 20 anos de experiência em Tarot, Búzios, Astrologia e práticas de desenvolvimento pessoal. Ao longo dessas duas décadas, tive a honra de orientar milhares de pessoas em momentos de dúvida, transição e busca por clareza.</p>
+      <p>Meu trabalho é baseado em escuta ativa, respeito e responsabilidade. Não faço promessas impossíveis — ofereço ferramentas de autoconhecimento e reflexão para que você possa tomar decisões mais conscientes sobre sua vida.</p>
+      <ul class="about-list">
+        <li>Atendimento presencial exclusivo na Asa Sul – DF | Online para todo o Brasil</li>
+        <li>Sigilo absoluto em todas as consultas</li>
+        <li>Mais de 5.000 consultas realizadas ao longo da carreira</li>
+        <li>Abordagem séria, respeitosa e sem julgamentos</li>
+        <li>E-mail: Hericayancovich2@gmail.com</li>
+        <li>WhatsApp: +55 (61) 98334-6917</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="services-bg full-width" style="max-width:100%;padding:100px 40px;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <p class="section-label">O que ofereço</p>
+    <h2 class="section-title">Serviços de <em>Consulta</em></h2>
+    <p class="section-desc">Cada atendimento é único e personalizado. Escolha a modalidade que mais ressoa com sua necessidade atual.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🃏</span>
+        <div class="service-name">Tarot</div>
+        <p class="service-desc">Uma das ferramentas mais antigas de autoconhecimento. O Tarot não prevê o futuro de forma absoluta — ele revela padrões, tendências e caminhos possíveis com base no momento presente.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🐚</span>
+        <div class="service-name">Búzios</div>
+        <p class="service-desc">Tradição africana milenar de grande profundidade. O jogo de búzios oferece orientação sobre amor, trabalho, saúde e espiritualidade através de uma leitura energética detalhada.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">⭐</span>
+        <div class="service-name">Astrologia</div>
+        <p class="service-desc">Análise do mapa astral completo: personalidade, tendências, ciclos de vida e momentos favoráveis para decisões importantes. Uma visão ampla da sua jornada.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🌸</span>
+        <div class="service-name">Limpeza Energética</div>
+        <p class="service-desc">Trabalho de harmonização e limpeza de energias pesadas que podem interferir no bem-estar, nos relacionamentos e na prosperidade. Realizado com respeito e intenção positiva.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💫</span>
+        <div class="service-name">Orientação Espiritual</div>
+        <p class="service-desc">Consultas de aconselhamento para momentos de transição, dúvida ou busca de propósito. Um espaço seguro e sigiloso para conversar sobre suas questões mais íntimas.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🌙</span>
+        <div class="service-name">Rituais de Prosperidade</div>
+        <p class="service-desc">Práticas energéticas para atração de oportunidades, abertura de caminhos e alinhamento de intenções com objetivos de vida — sempre com foco em livre-arbítrio e responsabilidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona">
+  <p class="section-label">Processo</p>
+  <h2 class="section-title">Como <em>funciona</em> uma consulta?</h2>
+  <p class="section-desc">Simple, transparente e respeitoso. Veja como é o processo do início ao fim.</p>
+  <div class="how-steps">
+    <div class="how-step">
+      <div class="step-num">01</div>
+      <div class="step-title">Contato Inicial</div>
+      <p class="step-desc">Entre em contato pelo WhatsApp. Sem compromisso — apenas uma conversa para entender sua necessidade e escolher a melhor modalidade.</p>
+    </div>
+    <div class="how-step">
+      <div class="step-num">02</div>
+      <div class="step-title">Agendamento</div>
+      <p class="step-desc">Escolhemos juntos o melhor horário. Atendimento presencial exclusivamente na Asa Sul – DF, ou online por videochamada/áudio via WhatsApp para todo o Brasil.</p>
+    </div>
+    <div class="how-step">
+      <div class="step-num">03</div>
+      <div class="step-title">Consulta</div>
+      <p class="step-desc">Sessão individual, com duração média de 50 a 70 minutos. Um espaço de escuta, reflexão e orientação — sem julgamentos.</p>
+    </div>
+    <div class="how-step">
+      <div class="step-num">04</div>
+      <div class="step-title">Acompanhamento</div>
+      <p class="step-desc">Após a consulta, você tem acesso ao canal de contato para tirar dúvidas sobre o que foi abordado durante o atendimento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <p class="section-label">Experiências Reais</p>
+  <h2 class="section-title">O que dizem quem <em>passou por aqui</em></h2>
+  <p class="section-desc">Relatos compartilhados voluntariamente por clientes sobre suas experiências de consulta.</p>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Estava em um momento de muita confusão na minha vida pessoal. A consulta com a Rosa me ajudou a enxergar com mais clareza o que eu realmente queria. Foi uma experiência transformadora."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">J</div>
+        <div>
+          <div class="author-name">Juliana M.</div>
+          <div class="author-location">São Paulo, SP</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Minha empresa estava passando por um período muito difícil. A orientação da Rosa me ajudou a reorganizar minhas prioridades e retomar o foco. Muito profissional e séria no que faz."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">R</div>
+        <div>
+          <div class="author-name">Ricardo S.</div>
+          <div class="author-location">Rio de Janeiro, RJ</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Passei por situações difíceis no trabalho e no relacionamento ao mesmo tempo. Depois da limpeza energética e da orientação, consegui retomar o equilíbrio. Recomendo de coração."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">F</div>
+        <div>
+          <div class="author-name">Fernanda L.</div>
+          <div class="author-location">Salvador, BA</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Nunca tinha feito uma consulta de Tarot antes. A Rosa foi muito cuidadosa em explicar tudo, sem forçar nada. Me ajudou a entender um período complicado da minha carreira com muito mais tranquilidade."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">M</div>
+        <div>
+          <div class="author-name">Marcos A.</div>
+          <div class="author-location">Brasília, DF</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"O que mais me impressionou foi o sigilo e o respeito durante toda a consulta. Me senti à vontade para falar sobre situações muito íntimas, sem nenhum julgamento. Voltarei com certeza."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">P</div>
+        <div>
+          <div class="author-name">Patrícia V.</div>
+          <div class="author-location">Goiânia, GO</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Fiz a consulta de astrologia e foi incrível ver como o mapa astral refletia tanto da minha personalidade. A Rosa tem um dom especial para explicar tudo de forma clara e acessível."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">C</div>
+        <div>
+          <div class="author-name">Carlos E.</div>
+          <div class="author-location">Taguatinga, DF</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <p class="section-label">Perguntas Frequentes</p>
+  <h2 class="section-title">Dúvidas <em>comuns</em></h2>
+  <p class="section-desc">Respostas diretas para as perguntas mais frequentes antes de uma consulta.</p>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Como funciona uma consulta de Tarot? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">O Tarot é uma ferramenta de autoconhecimento com séculos de história. Durante a consulta, você formula suas questões e as cartas são interpretadas como um mapa de padrões e tendências do momento presente. O Tarot não determina um futuro imutável — ele oferece perspectivas que auxiliam na tomada de decisão consciente.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Como funciona o jogo de Búzios? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Os Búzios são uma prática milenar de tradição africana. Os cacos de búzios são lançados e a leitura é feita com base na disposição em que caem. É uma prática que aborda questões de amor, família, trabalho, saúde e espiritualidade com uma profundidade particular, conectada à energia individual de cada pessoa.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        O atendimento é presencial ou online? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Os dois. Atendimento presencial exclusivamente na Asa Sul – DF, com horário agendado. Online para todo o Brasil via videochamada ou áudio no WhatsApp. A qualidade é equivalente nas duas formas — a experiência online funciona muito bem.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Qual é a duração média de uma consulta? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">A duração média varia entre 50 e 70 minutos, dependendo da complexidade das questões abordadas. Consultas de limpeza energética podem ter duração diferente. Combinamos tudo no agendamento para que você organize bem o seu tempo.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Minhas informações estão seguras? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Sim, absolutamente. Sigilo é um dos pilares do meu trabalho. Tudo que é compartilhado durante a consulta permanece entre nós. Não compartilho informações de clientes com terceiros sob nenhuma circunstância.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Como faço para agendar uma consulta? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">O agendamento é feito pelo WhatsApp: +55 (61) 98334-6917. Basta enviar uma mensagem, conversar um pouco sobre o que você precisa e escolhemos juntos o melhor horário e modalidade para você. Também pode entrar em contato por e-mail: Hericayancovich2@gmail.com.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Posso fazer perguntas sobre qualquer área da minha vida? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Sim. As consultas abordam amor e relacionamentos, carreira e negócios, família, saúde (como perspectiva energética, sem substituir acompanhamento médico), espiritualidade e desenvolvimento pessoal. Não há julgamentos — o espaço é de total acolhimento e respeito.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:40px 40px 100px;max-width:1100px;margin:0 auto;">
+  <div class="cta-strip">
+    <p class="section-label">Dê o primeiro passo</p>
+    <h2>Pronto para <em>encontrar clareza?</em></h2>
+    <p>Uma conversa pode ser o início de uma perspectiva completamente diferente. Entre em contato agora — sem compromisso.</p>
+    <a href="https://wa.me/5561983346917?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20as%20consultas" target="_blank" class="btn-primary" style="display:inline-flex;">
+      ✦ Falar com a Astróloga Rosa
+    </a>
+    <div class="cta-contact-info">
+      <a href="tel:+5561983346917" class="contact-item"><span>📞</span> +55 (61) 98334-6917</a>
+      <a href="mailto:Hericayancovich2@gmail.com" class="contact-item"><span>✉️</span> Hericayancovich2@gmail.com</a>
+      <a href="https://share.google/rUwQ0KEyRAAP7NOi2" target="_blank" class="contact-item"><span>📍</span> Ver no Google Maps</a>
+      <span class="contact-item"><span>🕐</span> Seg a Sáb · 9h às 20h</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">✦ Astróloga Rosa ✦</div>
+  <p class="footer-text">
+    Consultas de Tarot, Búzios, Astrologia e Orientação Espiritual.<br>
+    Atendimento presencial exclusivo na Asa Sul – DF | Online para todo o Brasil.<br><br>
+    <strong style="color:var(--text-dim);font-size:0.7rem;">
+      As consultas esotéricas têm caráter de autoconhecimento e reflexão, não substituindo orientação médica, psicológica ou jurídica.
+    </strong>
+  </p>
+  <div class="footer-links">
+    <a href="mailto:Hericayancovich2@gmail.com">E-mail</a>
+    <a href="tel:+5561983346917">Telefone</a>
+    <a href="https://share.google/rUwQ0KEyRAAP7NOi2" target="_blank">Google Maps</a>
+  </div>
+</footer>
+
+<!-- WHATSAPP BTN -->
+<a href="https://wa.me/5561983346917?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta" target="_blank" class="whatsapp-btn" title="Fale pelo WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- CHATBOT TOGGLE -->
+<button class="chat-toggle" onclick="toggleChat()" title="Chat com a Assistente" id="chatToggle">🔮</button>
+
+<!-- CHATBOT WINDOW -->
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-avatar">
+      <img id="chatAvatar" src="rosa-hero.jpg" alt="Rosa" onerror="this.style.display='none'">
+    </div>
+    <div class="chat-header-info">
+      <h4>Assistente da Rosa</h4>
+      <div class="chat-status">Online agora</div>
+    </div>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-options" id="chatOptions"></div>
+  <div class="chat-footer-note">Respostas automáticas · Para consulta real, use o WhatsApp</div>
+</div>
+
+<script>
+// ── INJECT PHOTO ──
+(function() {
+  // Use photo from page screenshots as base64 is not available here;
+  // We'll set a styled placeholder that references the real Rosa aesthetic
+  const imgs = ['heroImg','aboutImg','chatAvatar'];
+  // In production, replace src with actual hosted image URL
+})();
+
+// ── NAV SCROLL ──
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.style.background = window.scrollY > 50 ? 'rgba(10,7,5,0.97)' : 'rgba(10,7,5,0.85)';
+});
+
+// ── FAQ ──
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ── CHATBOT ──
+let chatOpen = false;
+
+const FLOWS = {
+  start: {
+    msg: "Olá! Sou a assistente virtual da Astróloga Rosa 🔮\n\nComo posso te ajudar hoje?",
+    opts: [
+      { label: "Como funciona uma consulta?", next: "como_funciona" },
+      { label: "Quais serviços são oferecidos?", next: "servicos" },
+      { label: "Atendimento online ou presencial?", next: "modalidade" },
+      { label: "Quanto tempo dura a consulta?", next: "duracao" },
+    ]
+  },
+  como_funciona: {
+    msg: "A consulta começa com uma conversa sobre o que você está vivendo. A Rosa usa as ferramentas escolhidas (Tarot, Búzios ou Astrologia) para oferecer uma leitura personalizada e orientação sobre seus caminhos. Tudo com sigilo e respeito. 🌙",
+    opts: [
+      { label: "Qual a diferença entre Tarot e Búzios?", next: "tarot_buzios" },
+      { label: "Como agendar?", next: "agendar" },
+      { label: "Voltar ao início", next: "start" }
+    ]
+  },
+  tarot_buzios: {
+    msg: "O **Tarot** usa um baralho de 78 cartas com séculos de simbologia para revelar padrões e tendências.\n\nOs **Búzios** são uma prática de tradição africana — os cacos são lançados e a leitura se baseia na disposição em que caem, conectada à sua energia pessoal.\n\nAmbos são ferramentas de autoconhecimento — não determinam um futuro fixo, mas mostram possibilidades. ✨",
+    opts: [
+      { label: "Como agendar?", next: "agendar" },
+      { label: "Tem atendimento online?", next: "modalidade" },
+      { label: "Voltar ao início", next: "start" }
+    ]
+  },
+  servicos: {
+    msg: "A Rosa oferece:\n\n🃏 Tarot\n🐚 Búzios\n⭐ Astrologia (mapa astral)\n🌸 Limpeza Energética\n💫 Orientação Espiritual\n🌙 Rituais de Prosperidade\n\nCada serviço é personalizado para o seu momento de vida.",
+    opts: [
+      { label: "Como funciona uma consulta?", next: "como_funciona" },
+      { label: "Como agendar?", next: "agendar" },
+      { label: "Voltar ao início", next: "start" }
+    ]
+  },
+  modalidade: {
+    msg: "Os dois! ✅\n\n**Presencial:** exclusivamente na Asa Sul – DF, com horário agendado.\n\n**Online:** por videochamada ou áudio no WhatsApp — para todo o Brasil. A qualidade da consulta é a mesma nas duas formas.\n\nVocê escolhe o que for mais confortável para você.",
+    opts: [
+      { label: "Quanto tempo dura a consulta?", next: "duracao" },
+      { label: "Como agendar?", next: "agendar" },
+      { label: "Voltar ao início", next: "start" }
+    ]
+  },
+  duracao: {
+    msg: "⏱️ A duração média de uma consulta é de **50 a 70 minutos**, dependendo das questões que forem surgindo durante o atendimento.\n\nConsultas de limpeza energética podem ter duração diferente — tudo é combinado no momento do agendamento.",
+    opts: [
+      { label: "Como agendar?", next: "agendar" },
+      { label: "O atendimento é sigiloso?", next: "sigilo" },
+      { label: "Voltar ao início", next: "start" }
+    ]
+  },
+  sigilo: {
+    msg: "🔒 Sim, 100%.\n\nTudo o que é compartilhado durante a consulta fica entre você e a Rosa. Não há compartilhamento de informações com terceiros, jamais. Sigilo é um dos fundamentos do trabalho dela.",
+    opts: [
+      { label: "Como agendar?", next: "agendar" },
+      { label: "Voltar ao início", next: "start" }
+    ]
+  },
+  agendar: {
+    msg: "Para agendar, é só entrar em contato pelo WhatsApp:\n\n📱 +55 (61) 98334-6917\n\nVocê conversa diretamente com a Rosa, escolhe o serviço e o horário mais conveniente. Atendimento de segunda a sábado, das 9h às 20h. 🌟",
+    opts: [
+      { label: "Abrir WhatsApp agora", next: "wpp" },
+      { label: "Voltar ao início", next: "start" }
+    ]
+  },
+  wpp: {
+    msg: "Perfeito! Clicando no botão abaixo você vai direto para o WhatsApp da Rosa. Ela responde pessoalmente. 💚",
+    opts: [
+      { label: "💬 Ir para o WhatsApp", next: "_wpp_link" },
+      { label: "Voltar ao início", next: "start" }
+    ]
+  }
+};
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  const win = document.getElementById('chatWindow');
+  const btn = document.getElementById('chatToggle');
+  win.classList.toggle('open', chatOpen);
+  btn.textContent = chatOpen ? '✕' : '🔮';
+  if (chatOpen && document.getElementById('chatBody').children.length === 0) {
+    renderFlow('start');
+  }
+}
+
+function renderFlow(key) {
+  const flow = FLOWS[key];
+  if (!flow) return;
+
+  // Add bot message
+  setTimeout(() => {
+    const body = document.getElementById('chatBody');
+    const msg = document.createElement('div');
+    msg.className = 'chat-msg bot';
+    msg.innerHTML = `<div class="msg-bubble">${flow.msg.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>')}</div>`;
+    body.appendChild(msg);
+    body.scrollTop = body.scrollHeight;
+
+    // Add options
+    const optWrap = document.getElementById('chatOptions');
+    optWrap.innerHTML = '';
+    flow.opts.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'chat-opt-btn';
+      btn.textContent = opt.label;
+      btn.onclick = () => {
+        if (opt.next === '_wpp_link') {
+          window.open('https://wa.me/5561983346917?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta','_blank');
+          return;
+        }
+        // Show user selection
+        const userMsg = document.createElement('div');
+        userMsg.className = 'chat-msg user';
+        userMsg.innerHTML = `<div class="msg-bubble">${opt.label}</div>`;
+        body.appendChild(userMsg);
+        optWrap.innerHTML = '';
+        body.scrollTop = body.scrollHeight;
+        setTimeout(() => renderFlow(opt.next), 500);
+      };
+      optWrap.appendChild(btn);
+    });
+  }, 300);
+}
+
+// ── SCROLL REVEAL ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.service-card, .testimonial-card, .how-step, .faq-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
